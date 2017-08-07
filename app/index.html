@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>4 1 handlebars</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+    <h1 class="well">Handlebars Demo :: Cat Albums!</h1>
+
+    <div class="container">
+      <div id="album-container" class="row">
+        <!-- html here is generated from handlebars -->
+      </div>
+    </div>
+
+
+    <script id="album-template" type="text/x-handlebars-template">
+      <div class="col-md-6">
+        <h2>{{ title }} #{{ albumNumber }}</h2>
+        <img src="{{ image }}" alt="">
+
+        <h3>Featured Pics</h3>
+
+        {{! Hey, this should have a fav class on it }}
+        {{#if isFav}}
+          <div class="well">{{ photos.0.photoTitle }}</div>
+        {{/if}}
+
+        <ul>
+          {{#each photos}}
+            <li><a href="#">{{ photoTitle }}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </script>
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
